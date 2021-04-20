@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameShop(EntityFramework)", "GameShop(EntityFramework)\GameShop(EntityFramework).csproj", "{682CD310-124A-4E3B-9B45-C0AE49B66CBF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{682CD310-124A-4E3B-9B45-C0AE49B66CBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{682CD310-124A-4E3B-9B45-C0AE49B66CBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{682CD310-124A-4E3B-9B45-C0AE49B66CBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{682CD310-124A-4E3B-9B45-C0AE49B66CBF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0DE06D31-FC3F-4B6E-A0D2-929789DA669E}
+	EndGlobalSection
+EndGlobal
