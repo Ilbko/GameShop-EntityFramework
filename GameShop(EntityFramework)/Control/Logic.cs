@@ -2,6 +2,7 @@
 using GameShop_EntityFramework_.View;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,12 +13,24 @@ namespace GameShop_EntityFramework_.Model
 {
     public class Logic
     {
-        public void RowSelected(Form1 form1)
+        public void RowSelected(Form1 form1, bool mode)
         {
-            if ((form1.Controls["dataGridView1"] as DataGridView).SelectedRows.Count > 0 &&
-                 (form1.Controls["dataGridView1"] as DataGridView).SelectedRows.Count <= 1)
+            DataGridView dataGrid;
+            if (mode)
             {
-                DataGridViewRow selectedRow = (form1.Controls["dataGridView1"] as DataGridView).SelectedRows[0];
+                dataGrid = form1.Controls["dataGridView1"] as DataGridView;
+                form1.Controls["button2"].Enabled = false;
+            }
+            else
+                dataGrid = form1.Controls["dataGridView2"] as DataGridView;
+
+            if (dataGrid.SelectedRows.Count > 0 &&
+                 dataGrid.SelectedRows.Count <= 1)
+            {
+                if (!mode)
+                    form1.Controls["button2"].Enabled = true;
+
+                DataGridViewRow selectedRow = dataGrid.SelectedRows[0];
 
                 form1.Controls["label4"].Visible = true;
                 form1.Controls["label5"].Visible = true;
@@ -85,6 +98,7 @@ namespace GameShop_EntityFramework_.Model
             Communication.db.Games.ToList()[index].Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value;
 
             form1.Controls["dataGridView1"].Refresh();
+            form1.Controls["dataGridView2"].Refresh();
 
             Communication.isChange = true;
         }
@@ -99,7 +113,7 @@ namespace GameShop_EntityFramework_.Model
                     {
                         //string test = formFind.Controls["textBox1"].Text.ToLower();
                         Communication.found_games =
-                            Communication.db.Games.AsEnumerable().Where(x => x.Game_Name.ToLower().Contains(formFind.Controls["textBox1"].Text.ToLower())).ToList(); 
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_Name.ToLower().Contains(formFind.Controls["textBox1"].Text.ToLower())).ToList(); 
                         //Communication.found_games =
                         //    Communication.db.Games.Where(x => x.Game_Name.ToLower().Contains(test)).ToList();
                         break;
@@ -107,26 +121,26 @@ namespace GameShop_EntityFramework_.Model
                 case 2:
                     {
                         Communication.found_games =
-                            Communication.db.Games.AsEnumerable().Where(x => x.Game_Studio.ToLower().Contains(formFind.Controls["textBox2"].Text.ToLower())).ToList();
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_Studio.ToLower().Contains(formFind.Controls["textBox2"].Text.ToLower())).ToList();
                         break;
                     }
                 case 3:
                     {
                         Communication.found_games =
-                            Communication.db.Games.AsEnumerable().Where(x => x.Game_Name.ToLower().Contains(formFind.Controls["textBox1"].Text.ToLower()) && 
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_Name.ToLower().Contains(formFind.Controls["textBox1"].Text.ToLower()) && 
                                                                                 x.Game_Studio.ToLower().Contains(formFind.Controls["textBox2"].Text.ToLower())).ToList();
                         break;
                     }
                 case 4:
                     {
                         Communication.found_games =
-                            Communication.db.Games.AsEnumerable().Where(x => x.Game_StyleId == (formFind.Controls["comboBox1"] as ComboBox).SelectedIndex + 1).ToList();
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_StyleId == (formFind.Controls["comboBox1"] as ComboBox).SelectedIndex + 1).ToList();
                         break;
                     }
                 case 5:
                     {
                         Communication.found_games =
-                            Communication.db.Games.AsEnumerable().Where(x => x.Game_ReleaseDate.Year == (formFind.Controls["numericUpDown1"] as NumericUpDown).Value).ToList();
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_ReleaseDate.Year == (formFind.Controls["numericUpDown1"] as NumericUpDown).Value).ToList();
                         break;
                     }
             }
@@ -141,6 +155,26 @@ namespace GameShop_EntityFramework_.Model
             if (Communication.isChange && 
                 MessageBox.Show("Сохранить изменения в БД?", "Сохранение", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 Communication.db.SaveChanges();
+        }
+
+        public void Delete(DataGridView dataGrid, int id)
+        {
+            if (MessageBox.Show("Вы точно хотите удалить игру?", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Communication.dataGrid.DataSource = null;
+                Communication.found_games.Remove(Communication.found_games.First(x => x.Game_Id == id));
+                Communication.dataGrid.DataSource = Communication.found_games;
+
+                dataGrid.DataSource = null;
+                Communication.db.Games.Remove(Communication.db.Games.First(x => x.Game_Id == id));
+                dataGrid.DataSource = Communication.db.Games.Local.ToList();
+                
+
+                dataGrid.Refresh();
+                Communication.dataGrid.Refresh();
+
+                Communication.isChange = true;
+            }
         }
     }
 }

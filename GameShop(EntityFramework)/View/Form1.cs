@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -36,7 +37,7 @@ namespace GameShop_EntityFramework_
                 this.comboBox2.Items.Add(item.Style_Name);
         }
 
-        private void dataGridView1_SelectionChanged(object sender, EventArgs e) => logic.RowSelected(this);
+        private void dataGridView1_SelectionChanged(object sender, EventArgs e) => logic.RowSelected(this, true);
 
         private void button1_Click(object sender, EventArgs e) => logic.SaveChanges(this);
 
@@ -51,5 +52,9 @@ namespace GameShop_EntityFramework_
         private void ByReleaseYearToolStripMenuItem_Click(object sender, EventArgs e) => logic.FindForm(5);
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e) => logic.MainFormClosing();
+
+        private void dataGridView2_SelectionChanged(object sender, EventArgs e) => logic.RowSelected(this, false);
+
+        private void button2_Click(object sender, EventArgs e) => logic.Delete(dataGridView1, (int)dataGridView2.CurrentRow.Cells[0].Value);
     }
 }
