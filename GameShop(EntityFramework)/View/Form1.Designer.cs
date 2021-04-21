@@ -96,30 +96,35 @@ namespace GameShop_EntityFramework_
             this.GameToolStripMenuItem.Name = "GameToolStripMenuItem";
             this.GameToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.GameToolStripMenuItem.Text = "Игры";
+            this.GameToolStripMenuItem.Click += new System.EventHandler(this.GameToolStripMenuItem_Click);
             // 
             // StudioToolStripMenuItem
             // 
             this.StudioToolStripMenuItem.Name = "StudioToolStripMenuItem";
             this.StudioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.StudioToolStripMenuItem.Text = "Студии";
+            this.StudioToolStripMenuItem.Click += new System.EventHandler(this.StudioToolStripMenuItem_Click);
             // 
             // GameAndStudioToolStripMenuItem
             // 
             this.GameAndStudioToolStripMenuItem.Name = "GameAndStudioToolStripMenuItem";
             this.GameAndStudioToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.GameAndStudioToolStripMenuItem.Text = "Студии и игры";
+            this.GameAndStudioToolStripMenuItem.Click += new System.EventHandler(this.GameAndStudioToolStripMenuItem_Click);
             // 
             // ByStyleToolStripMenuItem
             // 
             this.ByStyleToolStripMenuItem.Name = "ByStyleToolStripMenuItem";
             this.ByStyleToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ByStyleToolStripMenuItem.Text = "По стилю";
+            this.ByStyleToolStripMenuItem.Click += new System.EventHandler(this.ByStyleToolStripMenuItem_Click);
             // 
             // ByReleaseYearToolStripMenuItem
             // 
             this.ByReleaseYearToolStripMenuItem.Name = "ByReleaseYearToolStripMenuItem";
             this.ByReleaseYearToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.ByReleaseYearToolStripMenuItem.Text = "По году релиза";
+            this.ByReleaseYearToolStripMenuItem.Click += new System.EventHandler(this.ByReleaseYearToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -227,6 +232,7 @@ namespace GameShop_EntityFramework_
             // 
             // dateTimePicker1
             // 
+            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.SystemColors.Info;
             this.dateTimePicker1.Location = new System.Drawing.Point(413, 287);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(147, 20);
@@ -277,6 +283,7 @@ namespace GameShop_EntityFramework_
             // 
             // numericUpDown1
             // 
+            this.numericUpDown1.BackColor = System.Drawing.SystemColors.Info;
             this.numericUpDown1.Increment = new decimal(new int[] {
             1000,
             0,
@@ -296,6 +303,7 @@ namespace GameShop_EntityFramework_
             // 
             // comboBox1
             // 
+            this.comboBox1.BackColor = System.Drawing.SystemColors.Info;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
             "Нет",
@@ -308,16 +316,17 @@ namespace GameShop_EntityFramework_
             // 
             // comboBox2
             // 
+            this.comboBox2.BackColor = System.Drawing.SystemColors.Info;
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Location = new System.Drawing.Point(413, 254);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(147, 21);
             this.comboBox2.TabIndex = 15;
             this.comboBox2.Visible = false;
-            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox1
             // 
+            this.textBox1.BackColor = System.Drawing.SystemColors.Info;
             this.textBox1.Location = new System.Drawing.Point(87, 222);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
@@ -326,6 +335,7 @@ namespace GameShop_EntityFramework_
             // 
             // textBox2
             // 
+            this.textBox2.BackColor = System.Drawing.SystemColors.Info;
             this.textBox2.Location = new System.Drawing.Point(87, 255);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 20);
@@ -374,6 +384,7 @@ namespace GameShop_EntityFramework_
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
