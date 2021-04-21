@@ -298,8 +298,8 @@ namespace GameShop_EntityFramework_
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "Да",
-            "Нет"});
+            "Нет",
+            "Да"});
             this.comboBox1.Location = new System.Drawing.Point(413, 221);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(59, 21);
@@ -314,6 +314,7 @@ namespace GameShop_EntityFramework_
             this.comboBox2.Size = new System.Drawing.Size(147, 21);
             this.comboBox2.TabIndex = 15;
             this.comboBox2.Visible = false;
+            this.comboBox2.SelectedIndexChanged += new System.EventHandler(this.comboBox2_SelectedIndexChanged);
             // 
             // textBox1
             // 
@@ -343,6 +344,7 @@ namespace GameShop_EntityFramework_
             this.button1.Text = "Применить изменения";
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
