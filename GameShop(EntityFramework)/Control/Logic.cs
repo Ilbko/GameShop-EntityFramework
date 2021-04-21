@@ -27,26 +27,26 @@ namespace GameShop_EntityFramework_.Model
             if (dataGrid.SelectedRows.Count > 0 &&
                  dataGrid.SelectedRows.Count <= 1)
             {
+                form1.Controls["label3"].Text = "Изменить";
                 if (!mode)
                     form1.Controls["button2"].Enabled = true;
 
                 DataGridViewRow selectedRow = dataGrid.SelectedRows[0];
 
-                form1.Controls["label4"].Visible = true;
-                form1.Controls["label5"].Visible = true;
-                form1.Controls["label6"].Visible = true;
-                form1.Controls["label7"].Visible = true;
-                form1.Controls["label8"].Visible = true;
-                form1.Controls["label9"].Visible = true;
-                form1.Controls["button1"].Visible = true;
-                form1.Controls["label3"].ForeColor = Color.GreenYellow;
+                //form1.Controls["label4"].Visible = true;
+                //form1.Controls["label5"].Visible = true;
+                //form1.Controls["label6"].Visible = true;
+                //form1.Controls["label7"].Visible = true;
+                //form1.Controls["label8"].Visible = true;
+                //form1.Controls["label9"].Visible = true;
+                //form1.Controls["button1"].Visible = true;
 
-                form1.Controls["textBox1"].Visible = true;
-                form1.Controls["textBox2"].Visible = true;
-                form1.Controls["numericUpDown1"].Visible = true;
-                form1.Controls["comboBox1"].Visible = true;
-                form1.Controls["comboBox2"].Visible = true;
-                form1.Controls["dateTimePicker1"].Visible = true;
+                //form1.Controls["textBox1"].Visible = true;
+                //form1.Controls["textBox2"].Visible = true;
+                //form1.Controls["numericUpDown1"].Visible = true;
+                //form1.Controls["comboBox1"].Visible = true;
+                //form1.Controls["comboBox2"].Visible = true;
+                //form1.Controls["dateTimePicker1"].Visible = true;
 
                 form1.Controls["textBox1"].Text = selectedRow.Cells[2].Value.ToString();
                 form1.Controls["textBox2"].Text = selectedRow.Cells[3].Value.ToString();
@@ -62,45 +62,63 @@ namespace GameShop_EntityFramework_.Model
             }
             else
             {
-                form1.Controls["label4"].Visible = false;
-                form1.Controls["label5"].Visible = false;
-                form1.Controls["label6"].Visible = false;
-                form1.Controls["label7"].Visible = false;
-                form1.Controls["label8"].Visible = false;
-                form1.Controls["label9"].Visible = false;
-                form1.Controls["button1"].Visible = false;
-                form1.Controls["label3"].ForeColor = Color.LightGray;
+                //form1.Controls["label4"].Visible = false;
+                //form1.Controls["label5"].Visible = false;
+                //form1.Controls["label6"].Visible = false;
+                //form1.Controls["label7"].Visible = false;
+                //form1.Controls["label8"].Visible = false;
+                //form1.Controls["label9"].Visible = false;
+                //form1.Controls["button1"].Visible = false;
+                form1.Controls["label3"].Text = "Добавить";
 
-                form1.Controls["textBox1"].Visible = false;
-                form1.Controls["textBox2"].Visible = false;
-                form1.Controls["numericUpDown1"].Visible = false;
-                form1.Controls["comboBox1"].Visible = false;
-                form1.Controls["comboBox2"].Visible = false;
-                form1.Controls["dateTimePicker1"].Visible = false;
+                form1.Controls["textBox1"].Text = string.Empty;
+                form1.Controls["textBox2"].Text = string.Empty;
+                (form1.Controls["numericUpDown1"] as NumericUpDown).Value = 0;
+                (form1.Controls["comboBox1"] as ComboBox).SelectedIndex = 0;
+                (form1.Controls["comboBox2"] as ComboBox).SelectedIndex = 0;
+                (form1.Controls["dateTimePicker1"] as DateTimePicker).Value = DateTime.Today;
             }
         }
 
         public void SaveChanges(Form1 form1)
         {
-            int index = (form1.Controls["dataGridView1"] as DataGridView).CurrentCell.RowIndex;
+            if (form1.Controls["label3"].Text == "Изменить")
+            {
+                int index = (form1.Controls["dataGridView1"] as DataGridView).CurrentCell.RowIndex;
 
-            //games[index].Game_Name = form1.Controls["textBox1"].Text;
-            //games[index].Game_Studio = form1.Controls["textBox2"].Text;
-            //games[index].Game_SoldAmount = Convert.ToInt32((form1.Controls["numericUpDown1"] as NumericUpDown).Value);
-            //games[index].Game_IsMultiplayer = Convert.ToBoolean((form1.Controls["comboBox1"] as ComboBox).SelectedIndex);
-            //games[index].Game_StyleId = (form1.Controls["comboBox2"] as ComboBox).SelectedIndex + 1;
-            //games[index].Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value;
-            Communication.db.Games.ToList()[index].Game_Name = form1.Controls["textBox1"].Text;
-            Communication.db.Games.ToList()[index].Game_Studio = form1.Controls["textBox2"].Text;
-            Communication.db.Games.ToList()[index].Game_SoldAmount = Convert.ToInt32((form1.Controls["numericUpDown1"] as NumericUpDown).Value);
-            Communication.db.Games.ToList()[index].Game_IsMultiplayer = Convert.ToBoolean((form1.Controls["comboBox1"] as ComboBox).SelectedIndex);
-            Communication.db.Games.ToList()[index].Game_StyleId = (form1.Controls["comboBox2"] as ComboBox).SelectedIndex + 1;
-            Communication.db.Games.ToList()[index].Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value;
+                //games[index].Game_Name = form1.Controls["textBox1"].Text;
+                //games[index].Game_Studio = form1.Controls["textBox2"].Text;
+                //games[index].Game_SoldAmount = Convert.ToInt32((form1.Controls["numericUpDown1"] as NumericUpDown).Value);
+                //games[index].Game_IsMultiplayer = Convert.ToBoolean((form1.Controls["comboBox1"] as ComboBox).SelectedIndex);
+                //games[index].Game_StyleId = (form1.Controls["comboBox2"] as ComboBox).SelectedIndex + 1;
+                //games[index].Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value;
+                Communication.db.Games.ToList()[index].Game_Name = form1.Controls["textBox1"].Text;
+                Communication.db.Games.ToList()[index].Game_Studio = form1.Controls["textBox2"].Text;
+                Communication.db.Games.ToList()[index].Game_SoldAmount = Convert.ToInt32((form1.Controls["numericUpDown1"] as NumericUpDown).Value);
+                Communication.db.Games.ToList()[index].Game_IsMultiplayer = Convert.ToBoolean((form1.Controls["comboBox1"] as ComboBox).SelectedIndex);
+                Communication.db.Games.ToList()[index].Game_StyleId = (form1.Controls["comboBox2"] as ComboBox).SelectedIndex + 1;
+                Communication.db.Games.ToList()[index].Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value;
 
+                form1.Controls["dataGridView2"].Refresh();
+                Communication.isChange = true;
+            }
+            else
+            {
+                Communication.db.Games.Add(new Game
+                {
+                    Game_Name = form1.Controls["textBox1"].Text,
+                    Game_Studio = form1.Controls["textBox2"].Text,
+                    Game_SoldAmount = Convert.ToInt32((form1.Controls["numericUpDown1"] as NumericUpDown).Value),
+                    Game_IsMultiplayer = Convert.ToBoolean((form1.Controls["comboBox1"] as ComboBox).SelectedIndex),
+                    Game_StyleId = (form1.Controls["comboBox2"] as ComboBox).SelectedIndex + 1,
+                    Game_ReleaseDate = (form1.Controls["dateTimePicker1"] as DateTimePicker).Value
+                });
+            }
+
+            (form1.Controls["dataGridView1"] as DataGridView).DataSource = Communication.db.Games.Local.ToList();
+            Communication.db.SaveChanges();
             form1.Controls["dataGridView1"].Refresh();
-            form1.Controls["dataGridView2"].Refresh();
-
-            Communication.isChange = true;
+            form1.Controls["dataGridView1"].Update();
         }
 
         public void FindForm(UInt16 mode) => new FormFind(mode).ShowDialog();
@@ -145,6 +163,59 @@ namespace GameShop_EntityFramework_.Model
                     }
             }
             formFind.Dispose();
+            Communication.dataGrid.DataSource = Communication.found_games;
+            Communication.dataGrid.Update();
+            Communication.dataGrid.Refresh();
+        }
+
+        public void Find(UInt16 mode)
+        {
+            switch (mode)
+            {
+                case 6:
+                    {
+                        Communication.found_games =
+                            Communication.db.Games.Local.AsEnumerable().Where(x => !x.Game_IsMultiplayer).ToList();
+                        break;
+                    }
+                case 7:
+                    {
+                        Communication.found_games =
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_IsMultiplayer).ToList();
+                        break;
+                    }
+                case 8:
+                    {
+                        Communication.found_games =
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_SoldAmount == 
+                                Communication.db.Games.Local.AsEnumerable().Max(y => y.Game_SoldAmount)).ToList();
+                        break;
+                    }
+                case 9:
+                    {
+                        Communication.found_games =
+                            Communication.db.Games.Local.AsEnumerable().Where(x => x.Game_SoldAmount ==
+                                Communication.db.Games.Local.AsEnumerable().Min(y => y.Game_SoldAmount)).ToList();
+                        break;
+                    }
+                case 10:
+                    {
+                        List<Game> topGames =
+                            Communication.db.Games.Local.AsEnumerable().OrderBy(x => x.Game_SoldAmount).ToList();
+                        topGames.Reverse();
+
+                        Communication.found_games = topGames.Take(3).ToList();
+                        break;
+                    }
+                case 11:
+                    {
+                        List<Game> topGames =
+                            Communication.db.Games.Local.AsEnumerable().OrderBy(x => x.Game_SoldAmount).ToList();
+
+                        Communication.found_games = topGames.Take(3).ToList();
+                        break;
+                    }
+            }
             Communication.dataGrid.DataSource = Communication.found_games;
             Communication.dataGrid.Update();
             Communication.dataGrid.Refresh();

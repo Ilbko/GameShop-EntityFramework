@@ -56,6 +56,13 @@ namespace GameShop_EntityFramework_
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.QuerySearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllSingleplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllMultiplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MaxSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MinSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Top3BestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Top3WorstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -65,7 +72,8 @@ namespace GameShop_EntityFramework_
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.SearchToolStripMenuItem});
+            this.SearchToolStripMenuItem,
+            this.QuerySearchToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(584, 24);
@@ -183,7 +191,7 @@ namespace GameShop_EntityFramework_
             this.label3.BackColor = System.Drawing.Color.DimGray;
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
+            this.label3.ForeColor = System.Drawing.Color.GreenYellow;
             this.label3.Location = new System.Drawing.Point(254, 196);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 15);
@@ -202,7 +210,6 @@ namespace GameShop_EntityFramework_
             this.label4.Size = new System.Drawing.Size(67, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Название";
-            this.label4.Visible = false;
             // 
             // label5
             // 
@@ -216,7 +223,6 @@ namespace GameShop_EntityFramework_
             this.label5.Size = new System.Drawing.Size(50, 15);
             this.label5.TabIndex = 7;
             this.label5.Text = "Студия";
-            this.label5.Visible = false;
             // 
             // label6
             // 
@@ -230,7 +236,6 @@ namespace GameShop_EntityFramework_
             this.label6.Size = new System.Drawing.Size(44, 15);
             this.label6.TabIndex = 8;
             this.label6.Text = "Стиль";
-            this.label6.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -239,7 +244,6 @@ namespace GameShop_EntityFramework_
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(147, 20);
             this.dateTimePicker1.TabIndex = 9;
-            this.dateTimePicker1.Visible = false;
             // 
             // label7
             // 
@@ -253,7 +257,6 @@ namespace GameShop_EntityFramework_
             this.label7.Size = new System.Drawing.Size(85, 15);
             this.label7.TabIndex = 10;
             this.label7.Text = "Дата релиза";
-            this.label7.Visible = false;
             // 
             // label8
             // 
@@ -267,7 +270,6 @@ namespace GameShop_EntityFramework_
             this.label8.Size = new System.Drawing.Size(87, 15);
             this.label8.TabIndex = 11;
             this.label8.Text = "Мультиплеер";
-            this.label8.Visible = false;
             // 
             // label9
             // 
@@ -281,7 +283,6 @@ namespace GameShop_EntityFramework_
             this.label9.Size = new System.Drawing.Size(45, 15);
             this.label9.TabIndex = 12;
             this.label9.Text = "Копии";
-            this.label9.Visible = false;
             // 
             // numericUpDown1
             // 
@@ -301,7 +302,6 @@ namespace GameShop_EntityFramework_
             this.numericUpDown1.Size = new System.Drawing.Size(151, 20);
             this.numericUpDown1.TabIndex = 13;
             this.numericUpDown1.ThousandsSeparator = true;
-            this.numericUpDown1.Visible = false;
             // 
             // comboBox1
             // 
@@ -314,7 +314,6 @@ namespace GameShop_EntityFramework_
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(59, 21);
             this.comboBox1.TabIndex = 14;
-            this.comboBox1.Visible = false;
             // 
             // comboBox2
             // 
@@ -324,7 +323,6 @@ namespace GameShop_EntityFramework_
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(147, 21);
             this.comboBox2.TabIndex = 15;
-            this.comboBox2.Visible = false;
             // 
             // textBox1
             // 
@@ -333,7 +331,6 @@ namespace GameShop_EntityFramework_
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(151, 20);
             this.textBox1.TabIndex = 16;
-            this.textBox1.Visible = false;
             // 
             // textBox2
             // 
@@ -342,7 +339,6 @@ namespace GameShop_EntityFramework_
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(151, 20);
             this.textBox2.TabIndex = 17;
-            this.textBox2.Visible = false;
             // 
             // button1
             // 
@@ -355,7 +351,6 @@ namespace GameShop_EntityFramework_
             this.button1.TabIndex = 18;
             this.button1.Text = "Применить изменения";
             this.button1.UseVisualStyleBackColor = false;
-            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
@@ -371,6 +366,61 @@ namespace GameShop_EntityFramework_
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // QuerySearchToolStripMenuItem
+            // 
+            this.QuerySearchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AllSingleplayerToolStripMenuItem,
+            this.AllMultiplayerToolStripMenuItem,
+            this.MaxSoldToolStripMenuItem,
+            this.MinSoldToolStripMenuItem,
+            this.Top3BestToolStripMenuItem,
+            this.Top3WorstToolStripMenuItem});
+            this.QuerySearchToolStripMenuItem.Name = "QuerySearchToolStripMenuItem";
+            this.QuerySearchToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.QuerySearchToolStripMenuItem.Text = "Поиск по запросам";
+            // 
+            // AllSingleplayerToolStripMenuItem
+            // 
+            this.AllSingleplayerToolStripMenuItem.Name = "AllSingleplayerToolStripMenuItem";
+            this.AllSingleplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.AllSingleplayerToolStripMenuItem.Text = "Все однопользовательские";
+            this.AllSingleplayerToolStripMenuItem.Click += new System.EventHandler(this.AllSingleplayerToolStripMenuItem_Click);
+            // 
+            // AllMultiplayerToolStripMenuItem
+            // 
+            this.AllMultiplayerToolStripMenuItem.Name = "AllMultiplayerToolStripMenuItem";
+            this.AllMultiplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.AllMultiplayerToolStripMenuItem.Text = "Все многопользовательские";
+            this.AllMultiplayerToolStripMenuItem.Click += new System.EventHandler(this.AllMultiplayerToolStripMenuItem_Click);
+            // 
+            // MaxSoldToolStripMenuItem
+            // 
+            this.MaxSoldToolStripMenuItem.Name = "MaxSoldToolStripMenuItem";
+            this.MaxSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.MaxSoldToolStripMenuItem.Text = "Макс. проданных копий";
+            this.MaxSoldToolStripMenuItem.Click += new System.EventHandler(this.MaxSoldToolStripMenuItem_Click);
+            // 
+            // MinSoldToolStripMenuItem
+            // 
+            this.MinSoldToolStripMenuItem.Name = "MinSoldToolStripMenuItem";
+            this.MinSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.MinSoldToolStripMenuItem.Text = "Мин. проданных копий";
+            this.MinSoldToolStripMenuItem.Click += new System.EventHandler(this.MinSoldToolStripMenuItem_Click);
+            // 
+            // Top3BestToolStripMenuItem
+            // 
+            this.Top3BestToolStripMenuItem.Name = "Top3BestToolStripMenuItem";
+            this.Top3BestToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.Top3BestToolStripMenuItem.Text = "Топ-3 продаваемых игр";
+            this.Top3BestToolStripMenuItem.Click += new System.EventHandler(this.Top3BestToolStripMenuItem_Click);
+            // 
+            // Top3WorstToolStripMenuItem
+            // 
+            this.Top3WorstToolStripMenuItem.Name = "Top3WorstToolStripMenuItem";
+            this.Top3WorstToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.Top3WorstToolStripMenuItem.Text = "Топ-3 непродаваемых игр";
+            this.Top3WorstToolStripMenuItem.Click += new System.EventHandler(this.Top3WorstToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -441,6 +491,13 @@ namespace GameShop_EntityFramework_
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem QuerySearchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AllSingleplayerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AllMultiplayerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MaxSoldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem MinSoldToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Top3BestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem Top3WorstToolStripMenuItem;
     }
 }
 
