@@ -37,6 +37,13 @@ namespace GameShop_EntityFramework_
             this.GameAndStudioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ByStyleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ByReleaseYearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.QuerySearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllSingleplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.AllMultiplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MaxSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MinSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Top3BestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Top3WorstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
@@ -56,13 +63,6 @@ namespace GameShop_EntityFramework_
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.QuerySearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AllSingleplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.AllMultiplayerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MaxSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.MinSoldToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Top3BestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.Top3WorstToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
@@ -135,6 +135,61 @@ namespace GameShop_EntityFramework_
             this.ByReleaseYearToolStripMenuItem.Text = "По году релиза";
             this.ByReleaseYearToolStripMenuItem.Click += new System.EventHandler(this.ByReleaseYearToolStripMenuItem_Click);
             // 
+            // QuerySearchToolStripMenuItem
+            // 
+            this.QuerySearchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.AllSingleplayerToolStripMenuItem,
+            this.AllMultiplayerToolStripMenuItem,
+            this.MaxSoldToolStripMenuItem,
+            this.MinSoldToolStripMenuItem,
+            this.Top3BestToolStripMenuItem,
+            this.Top3WorstToolStripMenuItem});
+            this.QuerySearchToolStripMenuItem.Name = "QuerySearchToolStripMenuItem";
+            this.QuerySearchToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
+            this.QuerySearchToolStripMenuItem.Text = "Поиск по запросам";
+            // 
+            // AllSingleplayerToolStripMenuItem
+            // 
+            this.AllSingleplayerToolStripMenuItem.Name = "AllSingleplayerToolStripMenuItem";
+            this.AllSingleplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.AllSingleplayerToolStripMenuItem.Text = "Все однопользовательские";
+            this.AllSingleplayerToolStripMenuItem.Click += new System.EventHandler(this.AllSingleplayerToolStripMenuItem_Click);
+            // 
+            // AllMultiplayerToolStripMenuItem
+            // 
+            this.AllMultiplayerToolStripMenuItem.Name = "AllMultiplayerToolStripMenuItem";
+            this.AllMultiplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.AllMultiplayerToolStripMenuItem.Text = "Все многопользовательские";
+            this.AllMultiplayerToolStripMenuItem.Click += new System.EventHandler(this.AllMultiplayerToolStripMenuItem_Click);
+            // 
+            // MaxSoldToolStripMenuItem
+            // 
+            this.MaxSoldToolStripMenuItem.Name = "MaxSoldToolStripMenuItem";
+            this.MaxSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.MaxSoldToolStripMenuItem.Text = "Макс. проданных копий";
+            this.MaxSoldToolStripMenuItem.Click += new System.EventHandler(this.MaxSoldToolStripMenuItem_Click);
+            // 
+            // MinSoldToolStripMenuItem
+            // 
+            this.MinSoldToolStripMenuItem.Name = "MinSoldToolStripMenuItem";
+            this.MinSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.MinSoldToolStripMenuItem.Text = "Мин. проданных копий";
+            this.MinSoldToolStripMenuItem.Click += new System.EventHandler(this.MinSoldToolStripMenuItem_Click);
+            // 
+            // Top3BestToolStripMenuItem
+            // 
+            this.Top3BestToolStripMenuItem.Name = "Top3BestToolStripMenuItem";
+            this.Top3BestToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.Top3BestToolStripMenuItem.Text = "Топ-3 продаваемых игр";
+            this.Top3BestToolStripMenuItem.Click += new System.EventHandler(this.Top3BestToolStripMenuItem_Click);
+            // 
+            // Top3WorstToolStripMenuItem
+            // 
+            this.Top3WorstToolStripMenuItem.Name = "Top3WorstToolStripMenuItem";
+            this.Top3WorstToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
+            this.Top3WorstToolStripMenuItem.Text = "Топ-3 непродаваемых игр";
+            this.Top3WorstToolStripMenuItem.Click += new System.EventHandler(this.Top3WorstToolStripMenuItem_Click);
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -192,7 +247,7 @@ namespace GameShop_EntityFramework_
             this.label3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.ForeColor = System.Drawing.Color.GreenYellow;
-            this.label3.Location = new System.Drawing.Point(254, 196);
+            this.label3.Location = new System.Drawing.Point(255, 198);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 15);
             this.label3.TabIndex = 5;
@@ -366,61 +421,6 @@ namespace GameShop_EntityFramework_
             this.button2.Text = "Удалить";
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // QuerySearchToolStripMenuItem
-            // 
-            this.QuerySearchToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.AllSingleplayerToolStripMenuItem,
-            this.AllMultiplayerToolStripMenuItem,
-            this.MaxSoldToolStripMenuItem,
-            this.MinSoldToolStripMenuItem,
-            this.Top3BestToolStripMenuItem,
-            this.Top3WorstToolStripMenuItem});
-            this.QuerySearchToolStripMenuItem.Name = "QuerySearchToolStripMenuItem";
-            this.QuerySearchToolStripMenuItem.Size = new System.Drawing.Size(127, 20);
-            this.QuerySearchToolStripMenuItem.Text = "Поиск по запросам";
-            // 
-            // AllSingleplayerToolStripMenuItem
-            // 
-            this.AllSingleplayerToolStripMenuItem.Name = "AllSingleplayerToolStripMenuItem";
-            this.AllSingleplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.AllSingleplayerToolStripMenuItem.Text = "Все однопользовательские";
-            this.AllSingleplayerToolStripMenuItem.Click += new System.EventHandler(this.AllSingleplayerToolStripMenuItem_Click);
-            // 
-            // AllMultiplayerToolStripMenuItem
-            // 
-            this.AllMultiplayerToolStripMenuItem.Name = "AllMultiplayerToolStripMenuItem";
-            this.AllMultiplayerToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.AllMultiplayerToolStripMenuItem.Text = "Все многопользовательские";
-            this.AllMultiplayerToolStripMenuItem.Click += new System.EventHandler(this.AllMultiplayerToolStripMenuItem_Click);
-            // 
-            // MaxSoldToolStripMenuItem
-            // 
-            this.MaxSoldToolStripMenuItem.Name = "MaxSoldToolStripMenuItem";
-            this.MaxSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.MaxSoldToolStripMenuItem.Text = "Макс. проданных копий";
-            this.MaxSoldToolStripMenuItem.Click += new System.EventHandler(this.MaxSoldToolStripMenuItem_Click);
-            // 
-            // MinSoldToolStripMenuItem
-            // 
-            this.MinSoldToolStripMenuItem.Name = "MinSoldToolStripMenuItem";
-            this.MinSoldToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.MinSoldToolStripMenuItem.Text = "Мин. проданных копий";
-            this.MinSoldToolStripMenuItem.Click += new System.EventHandler(this.MinSoldToolStripMenuItem_Click);
-            // 
-            // Top3BestToolStripMenuItem
-            // 
-            this.Top3BestToolStripMenuItem.Name = "Top3BestToolStripMenuItem";
-            this.Top3BestToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.Top3BestToolStripMenuItem.Text = "Топ-3 продаваемых игр";
-            this.Top3BestToolStripMenuItem.Click += new System.EventHandler(this.Top3BestToolStripMenuItem_Click);
-            // 
-            // Top3WorstToolStripMenuItem
-            // 
-            this.Top3WorstToolStripMenuItem.Name = "Top3WorstToolStripMenuItem";
-            this.Top3WorstToolStripMenuItem.Size = new System.Drawing.Size(231, 22);
-            this.Top3WorstToolStripMenuItem.Text = "Топ-3 непродаваемых игр";
-            this.Top3WorstToolStripMenuItem.Click += new System.EventHandler(this.Top3WorstToolStripMenuItem_Click);
             // 
             // Form1
             // 

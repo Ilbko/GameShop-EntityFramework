@@ -1,4 +1,5 @@
-﻿using GameShop_EntityFramework_.Model;
+﻿using GameShop_EntityFramework_.Control;
+using GameShop_EntityFramework_.Model;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,9 +12,11 @@ using System.Windows.Forms;
 
 namespace GameShop_EntityFramework_.View
 {
+    //Форма поиска игр
     public partial class FormFind : Form
     {
         Logic logic = new Logic();
+        //Режим поиска (по названию игры, по названию студии...)
         UInt16 mode;
         public FormFind()
         {
@@ -25,6 +28,7 @@ namespace GameShop_EntityFramework_.View
             InitializeComponent();
             this.mode = mode;
 
+            //В зависимости от режима становятся активными соответствующие поля окна
             switch (mode)
             {
                 case 1:
@@ -49,14 +53,19 @@ namespace GameShop_EntityFramework_.View
                     }
                 case 4:
                     {
-                        using (GameModel model = new GameModel())
+                        //using (GameModel model = new GameModel())
+                        //{
+                        //    foreach (var item in model.Styles)
+                        //    {
+                        //        this.comboBox1.Items.Add(item.Style_Name);
+                        //    }
+                        //}
+                        foreach (var item in Communication.db.Styles)
                         {
-                            foreach (var item in model.Styles)
-                            {
-                                this.comboBox1.Items.Add(item.Style_Name);
-                            }
+                            this.comboBox1.Items.Add(item.Style_Name);
                         }
 
+                        this.comboBox1.SelectedIndex = 0;
                         this.label4.ForeColor = Color.Aquamarine;
                         this.comboBox1.Enabled = true;
                         break;
@@ -72,6 +81,7 @@ namespace GameShop_EntityFramework_.View
             }
         }
 
+        //Событие нажатия на кнопку поиска
         private void button1_Click(object sender, EventArgs e) => logic.Find(mode, this);
     }
 }
